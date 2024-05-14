@@ -1,0 +1,7 @@
+[user]
+	email = contact@pcabon.com
+	name = f9mc
+[core]
+	editor = nano
+[init]
+	defaultBranch = main
