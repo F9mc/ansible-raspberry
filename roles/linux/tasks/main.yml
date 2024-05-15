@@ -1,0 +1,18 @@
+  - name: Install packages with apt   
+    become: yes
+    ansible.builtin.apt:     
+      name:        
+        - git
+        - exa
+        - python3     
+      state: present
+    when: ansible_distribution == "Debian"
+
+  - name: Copy dotfiles
+    loop:
+      - .bashrc.d
+      - .bashrc
+      - .gitconfig
+    copy:
+      src: /home/debian/dotfiles/{{ item }}
+      dest: ~/
