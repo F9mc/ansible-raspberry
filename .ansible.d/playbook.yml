@@ -1,0 +1,22 @@
+- name: Setup playbook
+  hosts: localhost
+  tasks:
+
+  - name: Install packages with apt   
+    become: yes
+    ansible.builtin.apt:     
+      name:        
+        - git
+        - exa
+        - python3     
+      state: present
+    when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
+
+  - name: Copy dotfiles
+    loop:
+      - .bashrc.d
+      - .bashrc
+      - .gitconfig
+    copy:
+      src: /home/debian/dotfiles/{{ item }}
+      dest: ~/
