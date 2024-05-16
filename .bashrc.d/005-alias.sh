@@ -1,3 +1,3 @@
 alias grep="grep --color"
 alias ls="exa"
-alias dotfiles="ansible-playbook --ask-become-pass .ansible.d/playbook.yml"
+alias dotfiles="ansible-playbook -K ~/dotfiles/bootstrap.yml && bash"

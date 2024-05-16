@@ -1,0 +1,9 @@
+---
+- name: Python
+  import_tasks: python.yml
+
+- name: Rust
+  import_tasks: rust.yml
+
+- name: Go
+  import_tasks: go.yml

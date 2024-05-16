@@ -1,7 +1,10 @@
 ---
-- name: Bootstrap development environment
+- name: Bootstrap environment
   hosts: localhost
   tasks:
     - name: Linux Deskstop
       import_role:
         name: linux
+    - name: Programations languages
+      import_role:
+        name: prog

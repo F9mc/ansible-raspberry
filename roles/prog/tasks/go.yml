@@ -1,0 +1,23 @@
+---
+- name: "GO: check if go is installed"
+  shell: command -v go
+  register: go_exist
+  ignore_errors: true
+
+- name: "Go: download installer"
+  command: wget https://go.dev/dl/go{{go_version}}.linux-amd64.tar.gz
+  when: go_exist is failed  
+  
+- name: "Go: remove previous install"
+  command: rm -rf /usr/local/go
+  become: true
+  when: go_exist is failed
+  
+- name: "Go: extract new"
+  command: tar -C /usr/local -xzf go{{go_version}}.linux-amd64.tar.gz
+  become: true
+  when: go_exist is failed
+  
+- name: "Go: remove installation files"
+  shell: rm -rf go{{go_version}}.linux-amd64.tar.gz*
+  when: go_exist is failed
