@@ -5,6 +5,11 @@
     - name: Linux Deskstop
       import_role:
         name: linux
+
     - name: Programations languages
       import_role:
         name: prog
+
+    - name: VsCode config
+      import_role:
+        name: vscode

@@ -1,3 +1,37 @@
-  - name: Install packages with apt   
-    visual-studio-code-extensions:             
-      - aaron-bond.better-comments
+---
+- name: "Code: Copy conf"
+  copy:
+    src: /home/debian/dotfiles/Code
+    dest: ~/.config
+
+- name: "Code: Install Extensions"
+  loop:
+    - aaron-bond.better-comments
+    - berublan.vscode-log-viewer
+    - codezombiech.gitignore
+    - donjayamanne.githistory
+    - donjayamanne.python-environment-manager
+    - donjayamanne.python-extension-pack
+    - eamodio.gitlens
+    - golang.go
+    - howardzuo.vscode-git-tags
+    - mechatroner.rainbow-csv
+    - ms-azuretools.vscode-docker
+    - ms-python.black-formatter
+    - ms-python.debugpy
+    - ms-python.pylint
+    - ms-python.python
+    - ms-python.vscode-pylance
+    - redhat.ansible
+    - redhat.vscode-yaml
+    - rust-lang.rust-analyzer
+    - shaharkazaz.git-merger
+    - stuart.unique-window-colors
+    - tal7aouy.theme
+    - tamasfe.even-better-toml
+    - techiecouch.git-essentials
+    - visualstudioexptteam.intellicode-api-usage-examples
+    - visualstudioexptteam.vscodeintellicode
+    - yzhang.markdown-all-in-one
+    - zainchen.json
+  command: "code --install-extension {{ item }}"
