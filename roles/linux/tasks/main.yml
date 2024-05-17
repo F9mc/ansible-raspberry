@@ -16,9 +16,12 @@
     - .bashrc.d
     - .bashrc
     - .gitconfig
-  copy:
+  ansible.builtin.copy:
     src: /home/debian/dotfiles/{{ item }}
     dest: ~/
+    owner: debian
+    group: debian
+    mode: '0744'
 
 - name: "Debian: Remove useless directories"
   loop:
@@ -26,6 +29,6 @@
     - Musique
     - Vidéos
     - Public
-  ansible.builtin.file::
+  ansible.builtin.file:
     path: /home/debian/{{ item }}
     state: absent
