@@ -12,9 +12,9 @@ echo "> Adding $USR to sudoers"
 # Clone repo
 echo "> Clonning dotfiles repo"
 cd /home/$USR
-sudo -u $USR "git clone https://github.com/F9mc/dotfiles.git"
+sudo -u $USR git clone https://github.com/F9mc/dotfiles.git
 cd dotfiles
 
 # Run playbook
 echo "> Starging playbook"
-sudo -u $USR "ansible-playbook -k bootstrap.yml"
+sudo -u $USR ansible-playbook -k bootstrap.yml
