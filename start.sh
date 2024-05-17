@@ -8,7 +8,7 @@ apt install git ansible -y
 
 # Set "debian" as a Sudoers
 export USERNAME="debian"
-usermod -aG sudo $USERNAME
+/use/sbin/usermod -aG sudo $USERNAME
 
 su -l $USERNAME
 
