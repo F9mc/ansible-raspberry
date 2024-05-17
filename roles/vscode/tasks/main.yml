@@ -6,13 +6,11 @@
   when: ansible_facts['distribution'] == 'Debian' and ansible_facts['virtualization_type']!= 'windows'
 
 - name: "Code: Copy conf"
-
   copy:
     src: /home/debian/dotfiles/Code
     dest: ~/.config
 
 - name: "Code: Install Extensions"
-
   loop:
     - aaron-bond.better-comments
     - berublan.vscode-log-viewer
