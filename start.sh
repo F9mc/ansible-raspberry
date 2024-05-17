@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Uses root user
-echo "> Connect as root"
-su -l root
-
 # Install git, ansible
 echo "> Installing default packages"
 apt install git ansible -y
