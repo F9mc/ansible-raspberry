@@ -9,15 +9,15 @@ echo "> Installing default packages"
 apt install git ansible -y
 
 # Set "debian" as a Sudoers
-export USERNAME="debian"
-echo "> Adding $USERNAME to sudoers"
-/usr/sbin/usermod -aG sudo $USERNAME
+export USR="debian"
+echo "> Adding $USR to sudoers"
+/usr/sbin/usermod -aG sudo $USR
 
-su -l $USERNAME
+su -l $USR
 
 # Clone repo
 echo "> Clonning dotfiles repo"
-cd /home/$USERNAME
+cd /home/$USR
 git clone https://github.com/F9mc/dotfiles.git
 cd dotfiles
 
