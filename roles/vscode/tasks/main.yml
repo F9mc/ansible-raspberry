@@ -1,9 +1,14 @@
 ---
-- name: "Code: Install Code"
+- name: "Code: Check if installed"
+  shell: command -v code
+  register: go_exist
+  ignore_errors: true
+
+- name: "Code: Install linux"
   become: true
   ansible.builtin.apt:
     deb: https://vscode.download.prss.microsoft.com/dbazure/download/stable/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/code_{{ code_version }}_amd64.deb
-  when: ansible_facts['distribution'] == 'Debian' and ansible_facts['virtualization_type']!= 'windows'
+  when: ansible_facts['distribution'] == 'Debian' and ansible_facts['virtualization_type']!= 'windows' and go_exist is failed
 
 - name: "Code: Copy conf"
   copy:

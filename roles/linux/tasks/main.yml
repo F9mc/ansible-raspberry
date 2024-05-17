@@ -8,6 +8,8 @@
       - exa
       - curl
       - wget
+      - ansible-lint
+      - vim
     state: present
   when: ansible_distribution == "Debian"
 
@@ -29,11 +31,12 @@
     - Musique
     - Vidéos
     - Public
+    - Images
   ansible.builtin.file:
     path: /home/debian/{{ item }}
     state: absent
 
 - name: "Debian: gnome setup"
-  when: ansible_facts['distribution'] == 'Debian' and ansible_facts['virtualization_type']!= 'windows'
-  ansible.builtin.import_role:
-    name: gnome
+  when: ansible_env.DESKTOP_SESSION == "gnome"
+  import_tasks: gnome.yml
+  ignore_errors: true

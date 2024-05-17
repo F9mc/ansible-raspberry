@@ -17,5 +17,6 @@
   loop:
     - black
     - pyyaml
+    - psutil
   ansible.builtin.pip:
     name: "{{ item }}"

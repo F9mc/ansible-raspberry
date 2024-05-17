@@ -1,6 +1,7 @@
 ---
-- name: "Gnome: Set theme to dark"
-  community.general.dconf:
-    key: "/org/gnome/desktop/interface"
-    value: "[('gtk-theme', 'Adwaita-dark'), ('color-scheme', 'prefer-dark')]"
-    state: present
+- name: "Gnome: Set theme to dark 1"
+  command: gsettings set org.gnome.desktop.interface gtk-theme Awaita-dark
+
+- name: "Gnome: Set theme to dark 2"
+  command: gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
