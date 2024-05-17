@@ -9,7 +9,7 @@ export USR="debian"
 echo "> Adding $USR to sudoers"
 /usr/sbin/usermod -aG sudo $USR
 
-su -l $USR
+sudo -u $USR
 
 # Clone repo
 echo "> Clonning dotfiles repo"
