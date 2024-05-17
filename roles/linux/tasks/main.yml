@@ -19,3 +19,13 @@
   copy:
     src: /home/debian/dotfiles/{{ item }}
     dest: ~/
+
+- name: "Debian: Remove useless directories"
+  loop:
+    - Modèles
+    - Musique
+    - Vidéos
+    - Public
+  ansible.builtin.file::
+    path: /home/debian/{{ item }}
+    state: absent
