@@ -33,7 +33,7 @@
     path: /home/debian/{{ item }}
     state: absent
 
-- name: Gnome
+- name: "Debian: gnome setup"
   when: ansible_facts['distribution'] == 'Debian' and ansible_facts['virtualization_type']!= 'windows'
   ansible.builtin.import_role:
     name: gnome
