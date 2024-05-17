@@ -10,6 +10,7 @@
       - wget
       - ansible-lint
       - vim
+      - meld
     state: present
   when: ansible_distribution == "Debian"
 
@@ -18,6 +19,7 @@
     - .bashrc.d
     - .bashrc
     - .gitconfig
+    - .gitignore_global
   ansible.builtin.copy:
     src: /home/debian/dotfiles/{{ item }}
     dest: ~/
