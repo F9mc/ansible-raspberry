@@ -42,3 +42,4 @@
   when: ansible_env.DESKTOP_SESSION == "gnome"
   import_tasks: gnome.yml
   ignore_errors: true
+
