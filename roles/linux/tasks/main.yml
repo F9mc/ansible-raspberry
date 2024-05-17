@@ -1,10 +1,4 @@
 ---
-- namme: "Debian: set user as a sudoers"
-  ansible.builtin.user:
-    name: debian
-    groups: sudoers
-    append: yes
-
 - name: "Debian: Install packages with apt"
   become: true
   become_user: root
@@ -18,8 +12,6 @@
   when: ansible_distribution == "Debian"
 
 - name: "Debian: Copy dotfiles"
-  become: true
-  become_user: debian
   loop:
     - .bashrc.d
     - .bashrc

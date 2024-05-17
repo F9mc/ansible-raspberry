@@ -1,21 +1,18 @@
 ---
 - name: "Code: Install Code"
   become: true
-  become_user: debian
   ansible.builtin.apt:
     deb: https://vscode.download.prss.microsoft.com/dbazure/download/stable/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/code_{{ code_version }}_amd64.deb
   when: ansible_facts['distribution'] == 'Debian' and ansible_facts['virtualization_type']!= 'windows'
 
 - name: "Code: Copy conf"
-  become: true
-  become_user: debian
+
   copy:
     src: /home/debian/dotfiles/Code
     dest: ~/.config
 
 - name: "Code: Install Extensions"
-  become: true
-  become_user: debian
+
   loop:
     - aaron-bond.better-comments
     - berublan.vscode-log-viewer

@@ -1,14 +1,10 @@
 ---
 - name: "Rust: check if cargo is installed"
-  become: true
-  become_user: debian
   shell: command -v cargo
   register: cargo_exists
   ignore_errors: true
 
 - name: "Rust: download installer"
-  become: true
-  become_user: debian
   when: cargo_exists is failed
   get_url:
     url: https://sh.rustup.rs
@@ -17,7 +13,5 @@
     force: "yes"
 
 - name: "Rust: Install"
-  become: true
-  become_user: debian
   when: cargo_exists is failed
   shell: /tmp/sh.rustup.rs -y

@@ -14,8 +14,6 @@
     state: absent
 
 - name: "Python: Install python package"
-  become: true
-  become_user: debian
   loop:
     - black
     - pyyaml
