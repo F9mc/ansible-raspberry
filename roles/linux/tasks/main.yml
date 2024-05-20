@@ -11,6 +11,7 @@
       - ansible-lint
       - vim
       - meld
+      - zsh
     state: present
   when: ansible_distribution == "Debian"
 
@@ -18,6 +19,8 @@
   loop:
     - .bashrc.d
     - .bashrc
+    - .zshrc.d
+    - .zshrc
     - .gitconfig
     - .gitignore_global
   ansible.builtin.copy:
@@ -42,4 +45,7 @@
   when: ansible_env.DESKTOP_SESSION == "gnome"
   import_tasks: gnome.yml
   ignore_errors: true
+
+- name: "Debian: zsh setup"
+  import_tasks: zsh.yml
 

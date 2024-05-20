@@ -1,7 +1,46 @@
 ---
-- name: "Gnome: Set theme to dark 1"
-  command: gsettings set org.gnome.desktop.interface gtk-theme Awaita-dark
+- name: Install psutil
+  pip:
+    name:
+      - psutil
+    state: present
 
-- name: "Gnome: Set theme to dark 2"
-  command: gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+- name: Enable tap to click on touchpad
+  community.general.dconf:
+    key: "/org/gnome/desktop/peripherals/touchpad/tap-to-click"
+    value: "true"
 
+- name: Show battery percentage
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/show-battery-percentage"
+    value: "true"
+
+- name: Show apps in current workspace only on Alt+Tab
+  community.general.dconf:
+    key: "/org/gnome/shell/app-switcher/current-workspace-only"
+    value: "true"
+
+- name: Download updates automatically with GNOME software
+  community.general.dconf:
+    key: "/org/gnome/software/download-updates"
+    value: "true"
+
+- name: Disable GNOME search providers
+  community.general.dconf:
+    key: "/org/gnome/desktop/search-providers/disabled"
+    value: "['org.gnome.Photos.desktop', 'firefox.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.clocks.desktop', 'org.gnome.Terminal.desktop']"
+
+- name: Enable night light
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/color/night-light-enabled"
+    value: "true"
+
+- name: Enable night mode automatic schedule
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/color/night-light-schedule-automatic"
+    value: "true"
+
+- name: Configure night light temperature mode
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/color/night-light-temperature"
+    value: "uint32 4220"
