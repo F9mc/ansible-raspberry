@@ -4,12 +4,13 @@
 
 Linux:
 ```sh
-curl https://github.com/F9mc/dotfiles/blob/main/start.sh | bash
+curl https://raw.githubusercontent.com/F9mc/dotfiles/main/start.sh | bash
 ```
 
 Windows:
 ```ps1
-Invoke-WebRequest -Uri "https://github.com/F9mc/dotfiles/blob/main/start.ps1" -OutFile "$env:TEMP\start.ps1"; Invoke-Expression "$env:TEMP\start.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/F9mc/dotfiles/main/start.ps1" -OutFile "start.ps1"
+.\start.ps1
 ```
 
 ## Update config

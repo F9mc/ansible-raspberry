@@ -3,8 +3,9 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 # Install ansible and git
 choco install ansible
-choco install git
+choco install python
+python3 -m pip install ansible
 
 # Clone repo
 git clone https://github.com/F9mc/dotfiles.git
-Set-Location dotfiles
+Set-Location dotfiles   
