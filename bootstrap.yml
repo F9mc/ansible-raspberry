@@ -3,8 +3,14 @@
   hosts: localhost
   tasks:
     - name: Linux Deskstop
+      when: ansible_distribution == "Debian"
       import_role:
         name: linux
+
+    - name: Windows
+      when: ansible_distribution == "Windows"
+      import_role:
+        name: windows
 
     - name: Programations languages
       import_role:

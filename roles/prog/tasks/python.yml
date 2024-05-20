@@ -6,12 +6,14 @@
       - "python{{ python_version }}"
       - python3-pip
     state: present
+  when: ansible_distribution == "Debian"
 
 - name: "Python: Remove EXTERNALLY-MANAGED file"
   become: true
   ansible.builtin.file:
     path: /usr/lib/python3.11/EXTERNALLY-MANAGED
     state: absent
+  when: ansible_distribution == "Debian"
 
 - name: "Python: Install python package"
   loop:
@@ -20,3 +22,10 @@
     - psutil
   ansible.builtin.pip:
     name: "{{ item }}"
+  when: ansible_distribution == "Debian"
+
+- name: "Python: Install windows"
+  when: ansible_distribution == "Windows"
+  win_chocolatey:
+    name: "python"
+    state: present

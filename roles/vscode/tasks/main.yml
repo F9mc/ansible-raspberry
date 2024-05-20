@@ -1,5 +1,6 @@
 ---
 - name: "Code: Check if installed"
+  when: ansible_distribution == "Debian"
   shell: command -v code
   register: go_exist
   ignore_errors: true
@@ -10,10 +11,23 @@
     deb: https://vscode.download.prss.microsoft.com/dbazure/download/stable/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/code_{{ code_version }}_amd64.deb
   when: ansible_facts['distribution'] == 'Debian' and ansible_facts['virtualization_type']!= 'windows' and go_exist is failed
 
-- name: "Code: Copy conf"
+- name: "Code: Install windows"
+  when: ansible_distribution == "Windows"
+  win_chocolatey:
+    name: "vscode"
+    state: present
+
+- name: "Code: Copy conf linux"
+  when: ansible_distribution == "Debian"
   copy:
     src: /home/debian/dotfiles/Code
     dest: ~/.config
+
+- name: "Code: Copy conf windows"
+  when: ansible_distribution == "Windows"
+  copy:
+    src: C:\Users\pcabo\dotfiles\Code\User\settings.json
+    dest: C:\Users\pcabo\AppData\Roaming\Code\User\settings.json
 
 - name: "Code: Install Extensions"
   loop:
@@ -46,3 +60,5 @@
     - yzhang.markdown-all-in-one
     - zainchen.json
   command: "code --install-extension {{ item }}"
+
+

@@ -1,11 +1,12 @@
 ---
 - name: "Rust: check if cargo is installed"
+  when:  ansible_distribution == "Debian"
   shell: command -v cargo
   register: cargo_exists
   ignore_errors: true
 
 - name: "Rust: download installer"
-  when: cargo_exists is failed
+  when: cargo_exists is failed and ansible_distribution == "Debian"
   get_url:
     url: https://sh.rustup.rs
     dest: /tmp/sh.rustup.rs
@@ -13,5 +14,11 @@
     force: "yes"
 
 - name: "Rust: Install"
-  when: cargo_exists is failed
+  when: cargo_exists is failed and ansible_distribution == "Debian"
   shell: /tmp/sh.rustup.rs -y
+
+- name: "Rust: Install windows"
+  when: ansible_distribution == "Windows"
+  win_chocolatey:
+    name: "rust"
+    state: present
