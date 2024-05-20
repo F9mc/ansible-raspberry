@@ -12,6 +12,7 @@
       - vim
       - meld
       - zsh
+      - tmux      
     state: present
   when: ansible_distribution == "Debian"
 
