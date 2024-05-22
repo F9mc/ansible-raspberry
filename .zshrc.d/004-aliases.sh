@@ -1,3 +1,5 @@
 alias grep="grep --color"
 alias ls="exa"
+alias cat="batcat"
+alias cd="z"
 alias dotfiles="ansible-playbook -K ~/dotfiles/bootstrap.yml && bash"

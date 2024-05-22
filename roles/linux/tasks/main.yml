@@ -12,7 +12,9 @@
       - vim
       - meld
       - zsh
-      - tmux      
+      - tmux
+      - bat
+      - zoxide
     state: present
   when: ansible_distribution == "Debian"
 
@@ -24,6 +26,7 @@
     - .zshrc
     - .gitconfig
     - .gitignore_global
+    - .tmux.conf
   ansible.builtin.copy:
     src: /home/debian/dotfiles/{{ item }}
     dest: ~/
@@ -50,3 +53,8 @@
 - name: "Debian: zsh setup"
   import_tasks: zsh.yml
 
+- name: "Tmux: install plugins"
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: ~/.tmux/plugins/tpm
+    depth: 1
