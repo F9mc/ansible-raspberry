@@ -5,15 +5,21 @@
     state: directory
 
 - name: "Font: Download the font"
-  get_url:
-    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/0xProto.zip
+  become: true
+  ansible.builtin.get_url:
+    url: "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ font_versions }}/0xProto.zip"
     dest: /usr/local/share/fonts/0xProto.zip
+    mode: 0644
+    owner: debian
 
 - name: "Font: Unzip the font"
+  become: true
   unarchive:
     src: /usr/local/share/fonts/0xProto.zip
     dest: /usr/local/share/fonts/
     remote_src: yes
+    mode: 0644
+    owner: debian
 
 - name: "Font: Update font cache"
   command: fc-cache -f -v

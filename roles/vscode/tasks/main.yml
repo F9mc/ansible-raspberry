@@ -59,6 +59,11 @@
     - visualstudioexptteam.vscodeintellicode
     - yzhang.markdown-all-in-one
     - zainchen.json
+    - ms-vscode-remote.remote-wsl
+    - golang.go
+    - vadimcn.vscode-lldb
+    - github.copilot
+    - github.copilot-chat
   command: "code --install-extension {{ item }}"
 
 

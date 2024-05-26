@@ -22,5 +22,15 @@
     "editor.insertSpaces": true,
     "python.envFile": "${workspaceFolder}/.env",
     "pylint.args": [],
-    "workbench.colorTheme": "Theme Darker"
+    "workbench.colorTheme": "Theme Darker",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "git-autoconfig.configList": [
+        {
+            "user.email": "contact@pcabon.com",
+            "user.name": "F9mc"
+        }
+    ],
+    "git-autoconfig.ignoreRootList": [
+        "/home/debian/dotfiles"
+    ]
 }
