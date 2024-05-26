@@ -7,10 +7,10 @@
       import_role:
         name: linux
 
-    - name: Windows
-      when: ansible_distribution == "Windows"
-      import_role:
-        name: windows
+    # - name: Windows
+    #   when: ansible_distribution == "Windows"
+    #   import_role:
+    #     name: windows
 
     - name: Programations languages
       import_role:
