@@ -15,6 +15,7 @@
       - tmux
       - bat
       - zoxide
+      - unzip
     state: present
   when: ansible_distribution == "Debian"
 
@@ -52,6 +53,9 @@
 
 - name: "Debian: zsh setup"
   import_tasks: zsh.yml
+
+- name: "Debian: font install"
+  import_tasks: font.yml
 
 - name: "Tmux: install plugins"
   ansible.builtin.git:
