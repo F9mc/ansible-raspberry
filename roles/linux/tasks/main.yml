@@ -56,9 +56,3 @@
 
 - name: "Debian: font install"
   import_tasks: font.yml
-
-- name: "Tmux: install plugins"
-  ansible.builtin.git:
-    repo: https://github.com/tmux-plugins/tpm.git
-    dest: ~/.tmux/plugins/tpm
-    depth: 1
