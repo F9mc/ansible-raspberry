@@ -13,7 +13,7 @@
     "editor.cursorBlinking": "solid",
     "explorer.compactFolders": false,
     "workbench.startupEditor": "none",
-    "workbench.sideBar.location": "left",
+    "workbench.sideBar.location": "right",
     "workbench.tree.indent": 12,
     "workbench.editor.enablePreview": false,
     "scm.diffDecorations": "gutter",
