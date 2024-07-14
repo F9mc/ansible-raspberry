@@ -32,38 +32,46 @@
 - name: "Code: Install Extensions"
   loop:
     - aaron-bond.better-comments
+    - batisteo.vscode-django
     - berublan.vscode-log-viewer
     - codezombiech.gitignore
     - donjayamanne.githistory
     - donjayamanne.python-environment-manager
     - donjayamanne.python-extension-pack
     - eamodio.gitlens
+    - formulahendry.code-runner
+    - gitlab.gitlab-workflow
     - golang.go
     - howardzuo.vscode-git-tags
+    - kevinrose.vsc-python-indent
     - mechatroner.rainbow-csv
+    - mhutchie.git-graph
     - ms-azuretools.vscode-docker
     - ms-python.black-formatter
     - ms-python.debugpy
     - ms-python.pylint
     - ms-python.python
     - ms-python.vscode-pylance
+    - ms-vscode-remote.remote-wsl
+    - njpwerner.autodocstring
     - redhat.ansible
     - redhat.vscode-yaml
     - rust-lang.rust-analyzer
     - shaharkazaz.git-merger
+    - shan.code-settings-sync
+    - shyykoserhiy.git-autoconfig
     - stuart.unique-window-colors
     - tal7aouy.theme
     - tamasfe.even-better-toml
     - techiecouch.git-essentials
+    - vadimcn.vscode-lldb
     - visualstudioexptteam.intellicode-api-usage-examples
     - visualstudioexptteam.vscodeintellicode
+    - waderyan.gitblame
+    - wholroyd.jinja
     - yzhang.markdown-all-in-one
     - zainchen.json
-    - ms-vscode-remote.remote-wsl
-    - golang.go
-    - vadimcn.vscode-lldb
-    - github.copilot
-    - github.copilot-chat
+    - ziyasal.vscode-open-in-github
   command: "code --install-extension {{ item }}"
 
 
