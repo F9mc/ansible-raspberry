@@ -16,6 +16,7 @@
       - bat
       - zoxide
       - unzip
+      - fzf
     state: present
   when: ansible_distribution == "Debian"
 
