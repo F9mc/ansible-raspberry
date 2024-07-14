@@ -20,6 +20,7 @@
     - black
     - pyyaml
     - psutil
+    - uv
   ansible.builtin.pip:
     name: "{{ item }}"
   when: ansible_distribution == "Debian"
