@@ -17,6 +17,8 @@
       - zoxide
       - unzip
       - fzf
+      - nodejs
+      - npm
     state: present
   when: ansible_distribution == "Debian"
 
