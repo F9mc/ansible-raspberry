@@ -7,3 +7,6 @@
 
 - name: Go
   import_tasks: go.yml
+
+- name: JS
+  import_tasks: js.yml

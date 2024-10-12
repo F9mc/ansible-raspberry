@@ -1,0 +1,10 @@
+---
+- name: "Install node & npm"
+  become: true
+  become_user: root
+  ansible.builtin.apt:
+    name:
+      - nodejs
+      - npm
+    state: present
+  when: ansible_distribution == "Debian"
