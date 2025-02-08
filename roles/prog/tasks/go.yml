@@ -1,6 +1,6 @@
 ---
 - name: "GO: check if go is installed"
-  when: ansible_distribution == "Debian"
+
   shell: command -v go
   register: go_exist
   ignore_errors: true

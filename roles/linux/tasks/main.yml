@@ -8,19 +8,13 @@
       - exa
       - curl
       - wget
-      - ansible-lint
       - vim
-      - meld
       - zsh
       - tmux
-      - bat
       - zoxide
-      - unzip
       - fzf
-      - nodejs
-      - npm
     state: present
-  when: ansible_distribution == "Debian"
+  
 
 - name: "Debian: Copy dotfiles"
   loop:
@@ -48,11 +42,6 @@
   ansible.builtin.file:
     path: /home/debian/{{ item }}
     state: absent
-
-- name: "Debian: gnome setup"
-  when: ansible_env.DESKTOP_SESSION == "gnome"
-  import_tasks: gnome.yml
-  ignore_errors: true
 
 - name: "Debian: zsh setup"
   import_tasks: zsh.yml

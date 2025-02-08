@@ -1,8 +1,0 @@
----
-- name: "Install chocolatey packages"
-  loop:
-    - git
-    - ansible
-  win_chocolatey:
-    name: "{{ item }}"
-    state: present

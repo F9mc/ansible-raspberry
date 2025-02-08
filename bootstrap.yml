@@ -1,21 +1,15 @@
 ---
 - name: Bootstrap environment
-  hosts: localhost
+  hosts: rpi
   tasks:
     - name: Linux Deskstop
-      when: ansible_distribution == "Debian"
       import_role:
         name: linux
-
-    # - name: Windows
-    #   when: ansible_distribution == "Windows"
-    #   import_role:
-    #     name: windows
 
     - name: Programations languages
       import_role:
         name: prog
 
-    - name: VsCode config
+    - name: Splunk
       import_role:
-        name: vscode
+        name: splunk

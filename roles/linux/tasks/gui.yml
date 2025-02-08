@@ -1,9 +1,0 @@
----
-
-- name: "GUI app: install terminal terminator"
-  become: true
-  become_user: root
-  ansible.builtin.apt:
-    name:
-      - terminator
-      - firefox

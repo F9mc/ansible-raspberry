@@ -1,6 +1,6 @@
 ---
 - name: "Rust: download installer"
-  when: ansible_distribution == "Debian"
+
   get_url:
     url: https://sh.rustup.rs
     dest: /tmp/sh.rustup.rs
@@ -8,7 +8,7 @@
     force: "yes"
 
 - name: "Rust: Install"
-  when: ansible_distribution == "Debian"
+
   shell: /tmp/sh.rustup.rs -y
 
 - name: "Rust: Install windows"

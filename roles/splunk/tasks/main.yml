@@ -1,0 +1,13 @@
+---
+- name: "Install splunk package"
+  become: true
+  become_user: root
+  ansible.builtin.apt:
+    deb: /home/debian/splunk.deb
+
+
+- name: "Accept licence"
+  shell: /opt/splunk/bin/ start --accept-licence --answer-yes
+
+- name: "Enable init script"
+  shell: /opt/splunk/bin/ enable boot-start
